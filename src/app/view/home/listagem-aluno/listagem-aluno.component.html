@@ -1,0 +1,14 @@
+<app-conteudo>
+  <div class="container">
+    <div class="box">
+      <h3> Listagem - Aluno
+
+      </h3>
+      <app-tabela [pages]="0" [listaCabecalho]="cabecalho" [listaConteudo]="alunos" (edit)="onEdit($event)" (delete)="onDelete($event)"
+        (linhaTable)="onLinhaTable($event)" [buttons]="buttonsCadastro"></app-tabela>
+        
+        <button style="margin-top:12px" class="btn btn-success" (click)="novo()">Novo</button>
+    </div>
+
+  </div>
+</app-conteudo>

@@ -1,0 +1,43 @@
+<app-conteudo>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="container">
+      <div class="box">
+        <h3>Cadastro - Curso</h3>
+
+        <div class="container">
+
+          <div class="col-md-4">
+            <div class="input-group">
+              <div class="input-group-addon">
+                <label for="codigo">Codigo</label>
+              </div>
+              <input type="text" class="form-control" required placeholder="* Código Curso" id="codigo" name="codigo" [(ngModel)]="curso.codigoCurso">
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="input-group">
+              <div class="input-group-addon">
+                <label for="nome">Nome</label>
+              </div>
+              <input type="text" class="form-control" required placeholder="* Nome do Curso" id="nome" name="nome" [(ngModel)]="curso.nomeCurso">
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="input-group">
+              <div class="input-group-addon">
+                <label for="instituicao">Instituição</label>
+              </div>
+              <input type="text" class="form-control" required placeholder="* Nome da instituicao" id="instituicao" name="instituicao" [(ngModel)]="curso.instituicaoEnsino">
+            </div>
+          </div>
+
+        </div>
+        <button class="btn btn-danger" id="btn" (click)="cancelar()"> Cancelar</button>
+        <button type="submit" id="btn" class="btn btn-primary" [disabled]="!f.valid">Salvar</button>
+
+      </div>
+    </div>
+  </form>
+</app-conteudo>

@@ -1,0 +1,54 @@
+<app-conteudo>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="container">
+      <div class="box">
+        <h3>Edita - Curso</h3>
+
+        <div class="container">
+
+
+          <div class="col-md-4">
+            <div class="input-group">
+              <div class="input-group-addon">
+                <label for="idCurso">ID</label>
+              </div>
+              <input type="text" class="form-control" disabled required placeholder="* Código Curso" id="idCurso" name="idCurso" [(ngModel)]="curso.id">
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="input-group">
+              <div class="input-group-addon">
+                <label for="codigoCurso">Codigo</label>
+              </div>
+              <input type="text" class="form-control" required placeholder="* Código Curso" id="codigoCurso" name="codigoCurso" [(ngModel)]="curso.codigoCurso">
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="input-group">
+              <div class="input-group-addon">
+                <label for="nomeCurso">Nome</label>
+              </div>
+              <input type="text" class="form-control" required placeholder="* Nome do Curso" id="nomeCurso" name="nomeCurso" [(ngModel)]="curso.nomeCurso">
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="input-group">
+              <div class="input-group-addon">
+                <label for="instituicao">Instituição</label>
+              </div>
+              <input type="text" class="form-control" required placeholder="* Nome da instituicao" id="instituicao" name="instituicao"
+                [(ngModel)]="curso.instituicaoEnsino">
+            </div>
+          </div>
+
+        </div>
+        <button class="btn btn-danger" id="btn" (click)="cancelar()"> Cancelar</button>
+        <button type="submit" id="btn" class="btn btn-primary" [disabled]="!f.valid">Salvar</button>
+
+      </div>
+    </div>
+  </form>
+</app-conteudo>

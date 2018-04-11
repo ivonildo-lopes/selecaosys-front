@@ -1,0 +1,77 @@
+<app-conteudo>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="container">
+      <div class="box">
+        <h3>Edita - Aluno</h3>
+
+        <div class="container">
+
+          <div class="col-md-4">
+            <div class="input-group">
+              <div class="input-group-addon">
+                <label for="idAluno">ID</label>
+              </div>
+              <input type="text" class="form-control" disabled required placeholder="* Matricula do Aluno" id="idAluno" name="idAluno" [(ngModel)]="aluno.id">
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="input-group">
+              <div class="input-group-addon">
+                <label for="matricula">Matricula</label>
+              </div>
+              <input type="text" class="form-control" required placeholder="* Matricula do Aluno" id="matricula" name="matricula" [(ngModel)]="aluno.matricula">
+            </div>
+          </div>
+
+          <div class="col-md-8">
+            <div class="input-group">
+              <div class="input-group-addon">
+                <label for="nome">Nome</label>
+              </div>
+              <input type="text" class="form-control" required placeholder="* Nome do Aluno" id="nome" name="nome" [(ngModel)]="aluno.nome">
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="input-group">
+              <div class="input-group-addon">
+                <label for="semestre">Semestre</label>
+              </div>
+              <input type="number" class="form-control" required placeholder="* Semestre" id="semestre" name="semestre" [(ngModel)]="aluno.semestre">
+            </div>
+          </div>
+
+          <div class="col-md-8">
+
+            <div class="input-group" *ngIf="campo == 1">
+              <div class="input-group-addon">
+                <label for="curso">curso</label>
+              </div>
+              <input type="text" class="form-control" (click)="mudaOpcao()" required placeholder="* Curso" id="curso" name="curso" [(ngModel)]="aluno.curso.nomeCurso">
+            </div>
+
+            <app-autocomplete *ngIf="campo == 2" [listaConteudo]="listaCurso" label="Curso" separador="-" (bind)="aluno.curso = $event"
+              required></app-autocomplete>
+          </div>
+
+          <div class="col-md-4">
+
+            <div class="input-group" *ngIf="campoStatus == 1">
+              <div class="input-group-addon">
+                <label for="status">status</label>
+              </div>
+              <input type="text" class="form-control" (click)="mudaOpcaoStatus()" required placeholder="* status" id="status" name="status"
+                [(ngModel)]="aluno.status">
+            </div>
+            <app-dropdown *ngIf="campoStatus == 2" inputName="status" inputID="status" label="status" [listaConteudo]="status" (bind)="aluno.status = $event"></app-dropdown>
+          </div>
+
+        </div>
+        <button class="btn btn-danger" id="btn" (click)="cancelar()"> Cancelar</button>
+        <button type="submit" id="btn" class="btn btn-primary" [disabled]="!f.valid">Salvar</button>
+
+      </div>
+    </div>
+  </form>
+</app-conteudo>
