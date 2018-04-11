@@ -12,10 +12,11 @@
         </a>
 
         <ul class="nav navbar-nav">
-          <li *ngFor="let link of links" class="{{ link.ativo ? 'active' : '' }}">
-            <a href="{{ link.href }}" (click)="onClick(link)">
-              <i class="{{ link.icon !== null ? 'fa fa-'+ link.icon : ''}}"></i> {{ link.title }}
-            </a>
+          <li routerLinkActive="active">
+            <a [routerLink]="['apisys/alunos']">Alunos</a>
+          </li>
+          <li routerLinkActive="active">
+            <a [routerLink]="['apisys/cursos']">Cursos</a>
           </li>
         </ul>
       </div>

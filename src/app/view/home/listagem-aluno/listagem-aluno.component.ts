@@ -29,9 +29,13 @@ export class ListagemAlunoComponent implements OnInit {
   }
 
   onDelete(aluno) {
-    this.service.deletar(aluno).subscribe(res => {
-      this.populaLista(res);
-    });
+
+    if (window.confirm('Deseja Realmente deletar ?')) {
+      this.service.deletar(aluno).subscribe(res => {
+        this.populaLista(res);
+      });
+
+    }
   }
 
   onEdit(aluno) {
@@ -53,11 +57,11 @@ export class ListagemAlunoComponent implements OnInit {
     res.conteudo.forEach(item => {
       this.alunos.push({
         id: item.id,
-        nome: item.nome,
-        curso: item.curso.nomeCurso,
+        nome: item.nome.toUpperCase(),
+        curso: item.curso.nomeCurso.toUpperCase(),
         matricula: item.matricula,
         semestre: item.semestre,
-        status: item.status,
+        status: item.status.toUpperCase(),
       });
     });
 

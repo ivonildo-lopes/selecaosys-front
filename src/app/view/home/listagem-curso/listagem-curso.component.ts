@@ -28,13 +28,16 @@ export class ListagemCursoComponent implements OnInit {
   }
 
   onDelete(curso) {
-    this.service.deletar(curso).subscribe(res => {
-      this.populaLista(res);
-    });
+    if (window.confirm('Deseja Realmente deletar ?')) {
+      this.service.deletar(curso).subscribe(res => {
+        this.populaLista(res);
+      });
+
+    }
   }
 
   onEdit(curso) {
-     this.router.navigate(['apisys/cursos/' + curso.id]);
+    this.router.navigate(['apisys/cursos/' + curso.id]);
   }
 
   novo() {
@@ -51,9 +54,9 @@ export class ListagemCursoComponent implements OnInit {
     res.conteudo.forEach(item => {
       this.cursos.push({
         id: item.id,
-        codigoCurso: item.codigoCurso,
-        nomeCurso: item.nomeCurso,
-        instituicaoEnsino: item.instituicaoEnsino,
+        codigoCurso: item.codigoCurso.toUpperCase(),
+        nomeCurso: item.nomeCurso.toUpperCase(),
+        instituicaoEnsino: item.instituicaoEnsino.toUpperCase(),
       });
     });
 
