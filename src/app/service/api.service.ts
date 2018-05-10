@@ -31,16 +31,16 @@ export class ApiService {
     this.localhost = `${environment.url_base_host.search('localhost')}`;
 
     if (this.homologacao === '3') {
-      // this.url_base = `${environment.base_url_hapivda_homolog}` + `${environment.base_api_hapvida}`;
+      // this.url_base = `${environment.base_url_empresa_homolog}` + `${environment.base_api_empresa}`;
 
     } else if (this.desenvolvimento === '3') {
-      // this.url_base = `${environment.base_url_hapivda_desenv}` + `${environment.base_api_hapvida}`;
+      // this.url_base = `${environment.base_url_empresa_desenv}` + `${environment.base_api_empresa}`;
 
     } else if (this.localhost === '0') {
-      this.url_base = `${environment.base_api_hapvida}`;
+      this.url_base = `${environment.base_api_empresa}`;
 
     } else {
-      // this.url_base = `${environment.base_url_hapivda_producao}` + `${environment.base_api_hapvida}`;
+      // this.url_base = `${environment.base_url_empresa_producao}` + `${environment.base_api_empresa}`;
     }
 
   }
